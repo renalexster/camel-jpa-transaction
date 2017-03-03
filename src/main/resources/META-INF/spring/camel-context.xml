@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:camel="http://camel.apache.org/schema/spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd
+            http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+            
+	<bean class="route.CamelRoute" id="javaCamelRoute">
+	</bean>
+	
+	<context:annotation-config/>
+
+	<bean class="org.apache.camel.component.jpa.JpaComponent" id="jpa">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="transactionManager" ref="jpaTxManager" />
+	</bean>
+	
+	<bean id="jpaTxManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="myPU" />
+	</bean>
+	
+	<camelContext id="camelContext-53f50076-3af1-4e8d-9b27-88d15a6538e3"
+		trace="false" xmlns="http://camel.apache.org/schema/spring">
+		<routeBuilder ref="javaCamelRoute" />
+	</camelContext>
+</beans>
