@@ -11,9 +11,9 @@ import javax.persistence.Id;
 public class Person {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Long id;
-	public String name;
-	public Timestamp dthChange;
+	private Long id;
+	private String name;
+	private Timestamp dthChange;
 	
 	public Long getId() {
 		return id;

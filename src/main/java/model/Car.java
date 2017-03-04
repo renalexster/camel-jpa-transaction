@@ -16,7 +16,7 @@ public class Car {
 	private Long id;
 	private Integer year;
 	private String model;
-	public Timestamp dthChange;
+	private Timestamp dthChange;
 	
 	public Long getId() {
 		return id;
