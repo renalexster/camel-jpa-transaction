@@ -23,7 +23,7 @@ public class CamelRoute extends RouteBuilder{
 		.log("Reading cars.txt")
 		.unmarshal().csv().split().body()
 			.log("Searching car [${body}]")
-			.bean(MyService.class, "searchCarByModel")
+			.bean(MyService.class, "searchCarByModel") //lock when update.
 			.log("Persist car [${body.model}]")
 			.to("jpa://model.Car?persistenceUnit=myPU")
 			.log("Car [${body.id}] merged with dtChange [${body.dthChange}]")
