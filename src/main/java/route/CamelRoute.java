@@ -12,7 +12,7 @@ public class CamelRoute extends RouteBuilder{
 		
 		from("direct:handleFail").log("ERROR => ${header.CamelExceptionCaught}").rollback();
 		
-		from("file:src/test/resources/?antInclude=**/*.txt&noop=true&readLock=markerFile&delay=5000&idempotent=true")
+		from("file:src/test/resources/?antInclude=**/*.txt&readLock=markerFile&delay=500&move=done")
 		.setProperty("bkp").body()
 		.transacted()
 		.log("Creating test person")
