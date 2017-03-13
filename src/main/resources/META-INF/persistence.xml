@@ -16,8 +16,8 @@
 
 			<!-- DB Connection settings -->
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
-			<property name="hibernate.connection.url" value="jdbc:postgresql://172.17.0.2:5432/cameljpa"/>
-			<property name="hibernate.connection.username" value="camel"/>
+			<property name="hibernate.connection.url" value="jdbc:postgresql://192.168.238.8:5432/cameljpa"/>
+			<property name="hibernate.connection.username" value="cameljpa"/>
 			<property name="hibernate.connection.password" value="123456"/>
 			
        		<!--connection pool 

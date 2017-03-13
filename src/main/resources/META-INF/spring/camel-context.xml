@@ -12,6 +12,11 @@
 	<bean class="route.CamelRoute" id="javaCamelRoute">
 	</bean>
 	
+	<bean id="PROPAGATION_REQUIRED" class="org.apache.camel.spring.spi.SpringTransactionPolicy">
+	    <property name="transactionManager" ref="jpaTxManager"/>
+	    <property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"/>
+	</bean>
+
 	<context:annotation-config/>
 
 	<bean class="org.apache.camel.component.jpa.JpaComponent" id="jpa">

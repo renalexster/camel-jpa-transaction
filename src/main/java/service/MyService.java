@@ -6,7 +6,6 @@ import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import org.apache.camel.Body;
@@ -18,7 +17,7 @@ import model.Person;
 @Component
 public class MyService {
 
-	@PersistenceContext(unitName="myPU")
+	@javax.persistence.PersistenceContext(unitName="myPU")
 	private EntityManager entityManager;
 	
 	public Car searchCarByModel(@Body ArrayList<String> body){
@@ -26,7 +25,6 @@ public class MyService {
 		String[] split = body.iterator().next().split(";");
 		String year = split[0];
 		String model = split[1];
-		
 		
 		TypedQuery<Car> query = entityManager.createNamedQuery("Car.findByModel", Car.class);
 		query.setParameter("model", model);

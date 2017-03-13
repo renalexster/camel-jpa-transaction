@@ -30,6 +30,11 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- <dependency>
+		      <artifactId>camel.jpa.entitymanager</artifactId>
+		      <groupId>com.github.fharms</groupId>
+		      <version>0.0.2</version>
+		 </dependency> -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-csv</artifactId>
